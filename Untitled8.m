@@ -1,0 +1,12 @@
+b{1}=sys.type;
+b{2}=sys.andMethod;
+b{3}=sys.orMethod;
+b{4}=sys.defuzzMethod;
+b{5}=sys.impMethod;
+b{6}=sys.aggMethod;
+tipos=getfis(sys,'inmftypes');
+tipos=tipos(1,:);
+b{7}=tipos;
+tipos=getfis(sys,'outmftypes');
+tipos=tipos(1,:);
+b{8}=tipos;

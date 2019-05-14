@@ -1,0 +1,39 @@
+%Inicializacion de parametros para el modelos de la masa, el resorte y el
+%amortiguador
+clc
+for i=1:1000000
+    clc
+    m=num2str(input('Dame el valor de la masa m \n'));
+    k=num2str(input('Dame el valor de la constante del resorte k \n'));
+    b=num2str(input('Dame el valor de la constante del amortiguador b \n'));
+    comp=[str2double(m) str2double(k) str2double(b)];
+    n=length(comp);
+    contador=0;
+    for c=1:n
+        if isnan(comp(c))==1
+            contador=contador+1;
+        end
+    end
+    if contador>=1
+    errordlg(' Alguno de tus valores no es un número, vuelve a introducirlos porfavor ','Error');
+    else
+        break;
+    end
+end
+ boton=questdlg('Se ha llevado a cabo la inicialización de la variables, decea simular el sistema');
+ if strcmp(boton,'No')==1
+     clear all
+     break;
+ else if strcmp(boton,'Cancel')==1
+         run('masa_resorte_amortiguador')
+         
+     end
+ end
+ 
+%funcion de transferencia
+
+
+Num=1;
+Den=[str2double(m) str2double(b) str2double(k)];
+sys=tf(Num,Den);
+[x,y]=step(sys,t);
